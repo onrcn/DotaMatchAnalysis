@@ -89,5 +89,3 @@ for i, match in enumerate(matches):
             df.loc[i, hero] = -1
 
 df.to_csv('matches.csv', mode='a', index=True, header=False)
-
-from more_itertools import unique_everseen

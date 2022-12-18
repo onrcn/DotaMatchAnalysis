@@ -14,6 +14,13 @@ df = df.drop(['Unnamed: 0'], axis=1)
 X = df.drop('Result', axis=1).values
 y = df['Result'].values
 
+test_data = pd.read_csv('./test_matches.csv')
+test_data = test_data.drop_duplicates()
+test_data = test_data.dropna()
+test_data = test_data.drop(['Unnamed: 0'], axis=1)
+test_results = test_data.Result
+test_data = test_data.drop(['Result'], axis=1)
+
 scaler = MinMaxScaler()
 X = scaler.fit_transform(X)
 
@@ -36,3 +43,5 @@ test_loss, test_acc = model.evaluate(X_test, y_test)
 print('Test accuracy:', test_acc)
 
 predictions = model.predict(X_test)
+
+predictions_test = model.predict(test_data)
