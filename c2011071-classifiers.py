@@ -13,7 +13,7 @@ from tensorflow.keras import datasets, layers, models
 from sklearn.model_selection import train_test_split
 import matplotlib.pyplot as plt
 
-data = pd.read_csv('./matches.csv')
+data = pd.read_csv('./datasets/matches.csv')
 
 test_data = pd.read_csv('./test_matches.csv')
 test_data = test_data.drop_duplicates()

@@ -11,7 +11,7 @@ from sklearn.preprocessing import StandardScaler, MinMaxScaler
 from sklearn.model_selection import train_test_split
 from tensorflow import keras
 
-df = pd.read_csv('matches.csv')
+df = pd.read_csv('./datasets/matches.csv')
 df = df.drop_duplicates()
 df = df.dropna()
 df = df.drop(['Unnamed: 0'], axis=1)

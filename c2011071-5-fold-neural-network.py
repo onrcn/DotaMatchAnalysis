@@ -11,7 +11,7 @@ from sklearn.model_selection import KFold
 from sklearn.metrics import accuracy_score
 from tensorflow import keras
 
-df = pd.read_csv('matches.csv')
+df = pd.read_csv('./datasets/matches.csv')
 df = df.drop_duplicates()
 df = df.dropna()
 df = df.drop(['Unnamed: 0'], axis=1)
@@ -19,7 +19,7 @@ df = df.drop(['Unnamed: 0'], axis=1)
 X = df.drop('Result', axis=1).values
 y = df['Result'].values
 
-test_data = pd.read_csv('./test_matches.csv')
+test_data = pd.read_csv('./datasets/test_matches.csv')
 test_data = test_data.drop_duplicates()
 test_data = test_data.dropna()
 test_data = test_data.drop(['Unnamed: 0'], axis=1)
