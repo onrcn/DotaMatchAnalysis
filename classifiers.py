@@ -11,7 +11,6 @@ import pandas as pd
 
 from tensorflow.keras import datasets, layers, models
 from sklearn.model_selection import train_test_split
-import matplotlib.pyplot as plt
 
 data = pd.read_csv('./datasets/matches.csv')
 

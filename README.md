@@ -10,5 +10,8 @@ Scikit-Learn,
 Numpy.
 
 You can change the python version from
+```bash
 #!/usr/bin/env python3.8
+```
+
 by just editting the .8
