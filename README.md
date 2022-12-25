@@ -12,7 +12,7 @@ the folder into a zip file for an easy access.
 - Numpy
 
 ## DISCLAIMER
-Tensorflow doesn't let you use the most recent version of python3. You can
+Tensorflow **doesn't** let you use the most recent version of python3. You can
 change the python version from the beginning of my files.
 
 ```bash
