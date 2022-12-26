@@ -1,7 +1,0 @@
-#!/bin/bash
-
-while read -r link; do
-  eval link_to_pass="$link"
-
-  ./fetch-match-using-hero-data.py "$link_to_pass"
-done < links
