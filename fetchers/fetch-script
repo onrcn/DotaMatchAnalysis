@@ -4,13 +4,15 @@ current_dir_path=$(pwd)
 
 current_dir=$(basename "$current_dir_path")
 
-if [ "$current_dir" != "fetchers" ]; then
-  fetchers_path="$(dirname "$current_dir_path")/fetchers"
+if [ "$current_dir" = "datasets" ]; then
+    fetchers_path="$(dirname $current_dir_path)/fetchers"
+elif [ "$current_dir" != "fetchers" ]; then
+    fetchers_path="$current_dir_path/fetchers"
 else
-  fetchers_path="$current_dir_path"
+    fetchers_path="$current_dir_path"
 fi
 
 while read -r link; do
-  eval link_to_pass="$link"
-  ./fetch-match-using-hero-data.py "$link_to_pass"
+    echo "Fetching match data for $link"
+    "$fetchers_path/fetch-match-using-hero-data.py" "$link"
 done < "$fetchers_path/links.txt"
