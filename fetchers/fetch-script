@@ -1,19 +1,16 @@
 #!/bin/bash
 
-current_dir_name=$(basename $(pwd))
+current_dir_path=$(pwd)
 
-if [ "$current_dir_name" == "datasets" ]; then
-    cd ../fetchers
-elif [[ "$current_dir_name" != "fetchers" ]]; then
-    cd fetchers
+current_dir=$(basename "$current_dir_path")
+
+if [ "$current_dir" != "fetchers" ]; then
+  fetchers_path="$(dirname "$current_dir_path")/fetchers"
+else
+  fetchers_path="$current_dir_path"
 fi
-
-fetchers_path=$(pwd)
 
 while read -r link; do
   eval link_to_pass="$link"
-
   ./fetch-match-using-hero-data.py "$link_to_pass"
-done < "$fetchers_path/links"
-
-cd ..
+done < "$fetchers_path/links.txt"
