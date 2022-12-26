@@ -1,9 +1,10 @@
 # DOTA MATCH ANALYZER
 
-## Quick Informatiion 
-Since I've worked with more than one dataset and more than one model,
-Unfortunately, I cannot send just two files. To make it work, I've compressed
-the folder into a zip file for an easy access.
+## Quick Introduction:
+This project:
+
+* Scrapes the Dotabuff to build a dataset
+* Uses various Machine Learning/Deep Learning technologies to predict the outcome of the given matches.
 
 ### Required Libraries:
 - Tensorflow
@@ -11,7 +12,7 @@ the folder into a zip file for an easy access.
 - Scikit-Learn
 - Numpy
 
-## DISCLAIMER
+## DISCLAIMER:
 Tensorflow **doesn't** let you use the most recent version of python3. You can
 change the python version from the beginning of my files.
 
