@@ -20,3 +20,4 @@ change the python version from the beginning of my files.
 #!/usr/bin/env python3.8
 ```
 
+**_NOTE:_**  Datasets will be and can be updated by using the [fetch-script](./fetch-script)
