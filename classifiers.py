@@ -50,9 +50,9 @@ predicted_clf_test = clf.predict(test_data)
 print(f'Full Test DTC: {accuracy_score(predicted_clf_test, test_results)}')
 print(f'Split Test DTC: {accuracy_score(predicted_clf, y_test)}')
 
-from sklearn.svm import SVC
-svc = SVC()
-svc.fit(x_train, y_train)
+# from sklearn.svm import SVC
+# svc = SVC()
+# svc.fit(x_train, y_train)
 
 ##  predicted_svc = svc.predict(x_test)
 ##  predicted_svc_test = svc.predict(test_data)
