@@ -1,20 +1,22 @@
 #!/usr/bin/env python3.8
 
 import os
-os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'
+os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2' # Do not show Warning() messages
+
 import tensorflow as tf
-tf.get_logger().setLevel('ERROR')
+tf.get_logger().setLevel('ERROR') # Do not show Warning() messages if any, only show errors
 
 import pandas as pd
 import numpy as np
+
 from sklearn.preprocessing import StandardScaler, MinMaxScaler
 from sklearn.model_selection import train_test_split
 from tensorflow import keras
 
 df = pd.read_csv('./datasets/matches.csv')
+df = df.drop(['Unnamed: 0'], axis=1)
 df = df.drop_duplicates()
 df = df.dropna()
-df = df.drop(['Unnamed: 0'], axis=1)
 
 X = df.drop('Result', axis=1).values
 y = df['Result'].values
@@ -48,5 +50,4 @@ test_loss, test_acc = model.evaluate(X_test, y_test)
 print('Test accuracy:', test_acc)
 
 predictions = model.predict(X_test)
-
 predictions_test = model.predict(test_data)

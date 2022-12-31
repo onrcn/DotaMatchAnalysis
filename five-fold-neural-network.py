@@ -50,11 +50,3 @@ for train_index, test_index in kfold.split(X):
 
     test_loss, test_acc = model.evaluate(X_test, y_test)
     print(f'Test loss: {test_loss}, Test accuracy: {test_acc}')
-
-predictions = model.predict(X_test)
-predictions_test = model.predict(test_data)
-
-predictions = (predictions > 0.5).astype(int)
-predictions_test = (predictions_test > 0.5).astype(int)
-
-print(f'Accuracy on test data: {accuracy_score(test_results, predictions_test)}')

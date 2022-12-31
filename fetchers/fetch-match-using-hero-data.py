@@ -7,18 +7,6 @@ import pandas as pd
 import requests
 import sys
 
-url ='https://www.dotabuff.com/heroes'
-user_agent = {'User-agent': 'Mozilla/5.0'} # we should change our user-agent
-response = requests.get(url, headers=user_agent)
-html = response.content
-soup = BeautifulSoup(html, "lxml")
-hero_grid = soup.find_all("div", class_="hero")
-heroes = []
-heroes.append('Result')
-for hero in hero_grid:
-    heroes.append(hero.get_text(strip=True))
-df = pd.DataFrame(columns=heroes)
-
 class Match:
     def __init__(self, result, radiant, dire, duration):
         self.Result = result
@@ -40,6 +28,18 @@ class Match:
         print(f"Radiant: {self.Radiant}")
         print(f"Dire: {self.Dire}")
         print(f"Duration: {self.Duration}")
+
+url ='https://www.dotabuff.com/heroes' # for scraping heroes
+user_agent = {'User-agent': 'Mozilla/5.0'} # we should change our user-agent because dotabuff doesn't allow us to scrape unless
+response = requests.get(url, headers=user_agent)
+html = response.content
+soup = BeautifulSoup(html, "lxml")
+hero_grid = soup.find_all("div", class_="hero") # Get the div class names hero
+heroes = []
+heroes.append('Result') # This is for results
+for hero in hero_grid:
+    heroes.append(hero.get_text(strip=True))
+df = pd.DataFrame(columns=heroes)
 
 hero_match_url = sys.argv[1]
 response = requests.get(hero_match_url, headers=user_agent)
