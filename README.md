@@ -7,6 +7,8 @@ This project:
 * Uses various Machine Learning/Deep Learning technologies to predict the outcome of the given matches.
 
 ### Required Libraries:
+- BeautifulSoup4
+- lxml
 - Tensorflow
 - Pandas
 - Scikit-Learn
