@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 # use : https://www.dotabuff.com/matches?lobby_type=ranked_matchmaking&region=peru&skill_bracket=very_high_skill
 # coding: utf-8
 
