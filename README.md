@@ -13,11 +13,11 @@ This project:
 - Numpy
 
 ## DISCLAIMER:
-Tensorflow **doesn't** let you use the most recent version of python3. You can
+Tensorflow **doesn't** let you use the most recent version of which is currently python3.11 . You can
 change the python version from the beginning of my files.
 
 ```python3
-#!/usr/bin/env python3.8
+#!/usr/bin/env python3
 ```
 
 ## Explaining the scripts:

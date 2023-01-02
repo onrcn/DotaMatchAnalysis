@@ -1,4 +1,4 @@
-#!/usr/bin/env python3.8
+#!/usr/bin/env python3
 
 import os
 os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'
