@@ -6,7 +6,6 @@ os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'
 import tensorflow as tf
 tf.get_logger().setLevel('ERROR')
 
-import numpy as np
 import pandas as pd
 
 from tensorflow.keras import datasets, layers, models
@@ -21,6 +20,7 @@ test_data = test_data.drop(['Unnamed: 0'], axis=1)
 test_results = test_data.Result
 test_data = test_data.drop(['Result'], axis=1)
 
+data = data.reset_index(drop=True)
 data = data.drop_duplicates()
 data = data.dropna()
 data = data.drop(['Unnamed: 0'], axis=1)
@@ -49,12 +49,3 @@ predicted_clf = clf.predict(x_test)
 predicted_clf_test = clf.predict(test_data)
 print(f'Full Test DTC: {accuracy_score(predicted_clf_test, test_results)}')
 print(f'Split Test DTC: {accuracy_score(predicted_clf, y_test)}')
-
-##  from sklearn.svm import SVC
-##  svc = SVC()
-##  svc.fit(x_train, y_train)
-
-##  predicted_svc = svc.predict(x_test)
-##  predicted_svc_test = svc.predict(test_data)
-##  print(f'Full Test SVC: {accuracy_score(predicted_svc_test, test_results)}')
-##  print(f'Split Test SVC: {accuracy_score(predicted_svc, y_test)}')

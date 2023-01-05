@@ -92,4 +92,4 @@ for i, match in enumerate(matches):
         else:
             df.loc[i, hero] = -1
 
-df.to_csv('../datasets/matches.csv', mode='a', index=True, header=False)
+df.to_csv('../datasets/test-matches.csv', mode='a', index=True, header=False)
