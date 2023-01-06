@@ -10,7 +10,7 @@ df = df.drop(['Unnamed: 0'], axis=1)
 
 hero_columns = [col for col in df.columns if col != 'Result']
 
-hero_stats = {hero: {'wins': 0, 'losses': 0} for hero in hero_columns}
+hero_stats = {hero: {'wins': 0, 'loses': 0} for hero in hero_columns}
 
 for _, row in df.iterrows():
     result = row['Result']
@@ -22,14 +22,11 @@ for _, row in df.iterrows():
         elif value == 0 and result == 0:
             hero_stats[hero]['wins'] += 1
         elif value != -1:
-            hero_stats[hero]['losses'] += 1
+            hero_stats[hero]['loses'] += 1
 
-hero_win_rates = {hero: stats['wins'] / (stats['wins'] + stats['losses']) for hero, stats in hero_stats.items()}
+hero_win_rates = {hero: stats['wins'] / (stats['wins'] + stats['loses']) for hero, stats in hero_stats.items()}
 
 sorted_heroes = sorted(hero_win_rates, key=hero_win_rates.get, reverse=True)
-
-for hero in sorted_heroes[:10]:
-    print(f"{hero}: {hero_win_rates[hero]:.2f}")
 
 import matplotlib.pyplot as plt
 
@@ -39,7 +36,7 @@ bottom_heroes = sorted_heroes[-10:]
 plt.bar(top_heroes, [hero_win_rates[hero] for hero in top_heroes], color='g')
 plt.bar(bottom_heroes, [hero_win_rates[hero] for hero in bottom_heroes], color='r')
 
-plt.xlabel('Hero')
+plt.xlabel('Hero Name')
 plt.ylabel('Win Rate')
 plt.title('Top and Bottom Performing Heroes')
 

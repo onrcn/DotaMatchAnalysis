@@ -28,6 +28,9 @@ results = data.Result
 data = data.drop(['Result'], axis=1)
 print(f'Lenght of data: {len(data)}')
 
+print('----------------------')
+print('----------------------')
+
 x_train, x_test, y_train, y_test = train_test_split(data, results)
 
 from sklearn.ensemble import RandomForestClassifier
@@ -40,6 +43,9 @@ predicted_rfc_test = rfc.predict(test_data)
 from sklearn.metrics import accuracy_score
 print(f'Full Test RFC: {accuracy_score(predicted_rfc_test, test_results)}')
 print(f'Split Test RFC: {accuracy_score(predicted_rfc, y_test)}')
+
+print('----------------------')
+print('----------------------')
 
 from sklearn import tree
 clf = tree.DecisionTreeClassifier()
