@@ -63,4 +63,4 @@ change the python version from the beginning of my files.
   * The script converts the predictions to binary values using a threshold of 0.5 and calculates the accuracy of the predictions on the `test_results` dataset using the accuracy_score function from sklearn.metrics.
 
 
-**_NOTE:_**  Datasets will be and can be updated by using the [fetch-script](./fetchers/fetch-script)
+**_NOTE:_**  Datasets can be updated by using the [fetch-script](./fetchers/fetch-script)
